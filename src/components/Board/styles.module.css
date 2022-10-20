@@ -1,0 +1,42 @@
+.root {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(6,1fr);
+  gap: 0.3rem;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 1rem;
+  box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.5);
+}
+.field{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7a45ff;
+  color:black;
+  box-shadow:inset 3px 3px 8px 0px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.field.red{
+ background-color: #ffce68;
+}
+.field:hover{
+  transform: scale(1.1);
+}
+.end{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7a45ff;
+  color:black;
+  box-shadow:inset 3px 3px 8px 0px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
