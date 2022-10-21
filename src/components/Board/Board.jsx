@@ -22,38 +22,30 @@ export const Board = (props) => {
     console.log(marked)
   }
 
-  
-
   useEffect(() => {
-    marked.sort().map(
-      (el, i, a) => {
-        if (
-          (a[i] === a[i + 1] - 1 &&
-            a[i + 1] === a[i + 2] - 1 &&
-            a[i + 2] === a[i + 3] - 1) ||
-          (a[i] === a[i - 1] - 1 &&
-            a[i - 1] === a[i - 2] - 1 &&
-            a[i - 2] === a[i - 3] - 1)
-        ) {
-          setInfo('Wygrana')
-          setFlag(false)
-          setTimeout(()=>{
-            window.location.reload();
-          },1500)
-        }
-        
-      },
-      [marked]
-    )
-    
+    marked
+      .sort((a, b) => a - b)
+      .map(
+        (el, i, a) => {
+          if (
+            (a[i] === a[i + 1] - 1 && a[i + 1] === a[i + 2] - 1 &&  a[i + 2] === a[i + 3] - 1) ||
+            (a[i] === a[i + 1] - 7 && a[i + 1] === a[i + 2] -7 && a[i + 2] === a[i + 3] - 7)||
+              (a[i]=== a[i+1]-8 &&a[i]=== a[i+2]-16&&a[i]=== a[i+3]-24)||
+              (a[i]=== a[i+1]-6 &&a[i]=== a[i+2]-12&&a[i]=== a[i+3]-18)
+          ) {
+            setInfo('Wygrana')
+            setFlag(false)
+            setTimeout(() => {
+              window.location.reload()
+            }, 1500)
+          }
+        },
+        [marked]
+      )
   })
-  
-  
- 
 
   return (
     <>
-     
       <h2>{info}</h2>
       <div
         className={`${classes.root}${className ? ` ${className}` : ''}`}
